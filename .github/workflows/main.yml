@@ -3,4 +3,12 @@ on:
   push:
 jobs:
   build:
-      runs-on: 
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo "Iniciando a Workflow"
+        - name: Checkout
+          uses: action/checkout@v5
+        - name: Listando arquivos
+          run: ls ${{github.workspace}}
+        - name: Status
+          run: echo "${{job.status}}"
