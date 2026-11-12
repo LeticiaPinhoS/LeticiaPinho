@@ -1,0 +1,20 @@
+name: Validação de Projeto
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "iniciando o workflow"
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Validação de Projeto
+        run: |
+            echo "Repositorio: ${{ github.repository }}"
+            echo "Usuário: ${{ github.action}}"
+      - name: Listando arquivos
+        run: ls ${{ github.workspace }}
+      - name: Verificando Readme
+        run: test -f README.md
+      - name: Validação concluida
+        run: echo "A validação foi concluida"
